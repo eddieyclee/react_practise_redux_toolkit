@@ -21,16 +21,16 @@ export const todoSlice = createSlice({
 })
 
 export const asyncFetchTodo = createAsyncThunk(
-    'todo/asyncFetchTodo',
-    async(payload, {dispatch}) => {
+    'todo/asyncFetchTodo', // action type 名稱
+    async (payload, {dispatch}) => { // { dispatch }：是 thunkAPI 提供的工具之一，讓你可以 dispatch 其他 action
         const res = await axios.get('https://jsonplaceholder.typicode.com/todos')
         // console.log('createAsyncThunk', res.data)
-        dispatch(updateTodo(res.data))
+        dispatch(updateTodo(res.data)) // 將 API 資料丟到你的同步 reducer
     }
 )
 
 const { updateTodo } = todoSlice.actions
 
-export const selectData = (state) => state.todo.data //在 slice 檔案，就先寫好 callback function
+export const selectData = (state) => state.todo.data //在 todoSlice 檔案，就先寫好 callback function
 
 export default todoSlice.reducer

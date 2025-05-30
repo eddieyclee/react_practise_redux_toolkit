@@ -6,7 +6,7 @@ export const countSlice = createSlice({
     initialState: {
         count: 100
     },
-    reducers: { // 新增一個 reducers 物件，並添加方法&reducers 本身僅能處理同步的狀態
+    reducers: { // 新增一個 reducers 物件，並添加方法;reducers 本身僅能處理同步的狀態
         addCount(state) {
             // console.log('addCount', state.count)
             state.count = state.count + 1
@@ -25,16 +25,18 @@ export const countSlice = createSlice({
 
 })
 
+// console.log(countSlice);
+
 export const asyncAddCount = createAsyncThunk(
-    'counterAsync/asyncAddCount',
-    async (num, {dispatch}) => {
+    'counterAsync/asyncAddCount', // action type 名稱
+    async (num, {dispatch}) => { // payload 是 num，並取得 dispatch 函式
         // console.log(num, dispatch)
         setTimeout(() => {
-            dispatch(addCountByNum(num))
+            dispatch(addCountByNum(num)) // 1 秒後 dispatch 同步 action
         }, 1000)
     }
 )
 
-export default countSlice.reducer // 匯出該 Slice 的 reducer
+export default countSlice.reducer // 預設匯出該 countSlice 的 reducer
 
-export const { addCount, addCountByNum, addCountAsync } = countSlice.actions // 從 slice 中的 reducers 中匯出該方法
+export const { addCount, addCountByNum, addCountAsync } = countSlice.actions // 從 countSlice 中的 reducers 中匯出該方法

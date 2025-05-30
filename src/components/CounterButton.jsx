@@ -31,7 +31,7 @@ function CounterButton() {
         // 此段無法執行非同步動作
         // dispatch(addCountAsync())
 
-        // 元件裡處理完非同步
+        // 元件裡處理完非同步;直接元件使用setTimeout處理 而不是在countSlice內執行
         // setTimeout(() => {
         //     dispatch(addCount())
         // }, 500)

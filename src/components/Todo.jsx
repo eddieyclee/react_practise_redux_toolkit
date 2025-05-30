@@ -6,7 +6,7 @@ function Todo() {
     const [title, setTitle] = useState('')
     const data = useSelector(selectData)
     const dispatch = useDispatch()
-    console.log(data)
+    // console.log(data)
 
     useEffect(() => {
         (async () => {

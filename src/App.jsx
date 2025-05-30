@@ -14,6 +14,7 @@ function App() {
   //   }, 200)
   // }
 
+  // 加入元件後 並透過Redux Toolkit 傳遞資料
   return (
     <>
       <Todo />
