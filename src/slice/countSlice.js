@@ -16,13 +16,15 @@ export const countSlice = createSlice({
             state.count = state.count + action.payload
         },
         // 此段無法執行非同步動作
+        // 在 createSlice() 裡的 reducer 函數中，state 是一個由 Immer 管理的 Proxy 對象。
+        // 這個 Proxy 只在該同步函數執行期間有效，當 reducer 結束後，Proxy 就會被「撤銷（revoked）」，
+        // 任何後續對它的操作都會出錯。
         // addCountAsync(state) {
         //     setTimeout(() => {
         //         state.count = state.count + 1
         //     }, 100)
         // }
     }
-
 })
 
 // console.log(countSlice);

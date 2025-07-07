@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { addCount, addCountByNum, asyncAddCount } from "../slice/countSlice";
+import { addCount, addCountByNum, addCountAsync, asyncAddCount } from "../slice/countSlice";
 import { useState } from "react";
 
 function CounterButton() {
